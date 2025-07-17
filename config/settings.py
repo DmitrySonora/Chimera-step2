@@ -17,6 +17,10 @@ LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
 API_TIMEOUT = 30  # секунд
 TYPING_DELAY = 0.5  # секунд между обновлениями typing
 
+# Режимы работы
+USE_JSON_MODE = True  # Использовать JSON режим для ответов (True/False)
+DEFAULT_MODE = "default"  # Режим по умолчанию (default/expert/creative/empathetic)
+
 # Лимиты сообщений
 DAILY_MESSAGE_LIMIT = 10  # Дневной лимит сообщений для демо-доступа
 
