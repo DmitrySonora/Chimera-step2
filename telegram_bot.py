@@ -5,7 +5,7 @@ from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 from telegram.constants import ChatAction
 
-from config.settings import TELEGRAM_BOT_TOKEN, TYPING_DELAY, USER_MESSAGES
+from config.settings import TELEGRAM_BOT_TOKEN, TYPING_DELAY, USER_MESSAGES, USE_JSON_MODE, DEFAULT_MODE
 from services.deepseek_service import deepseek_service
 from events.base_event import BaseEvent
 
@@ -74,8 +74,8 @@ class ChimeraTelegramBot:
                 response = await deepseek_service.ask_deepseek(
                     message_text,
                     user_id=user_id,
-                    use_json=True,  # Включаем JSON режим по умолчанию
-                    mode="default"
+                    use_json=USE_JSON_MODE,  # Берем из конфигурации
+                    mode=DEFAULT_MODE  # Берем из конфигурации
                 )
                 
                 # Останавливаем индикатор печати
